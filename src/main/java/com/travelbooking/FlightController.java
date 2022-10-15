@@ -1,15 +1,20 @@
 package com.travelbooking;
 
+import java.util.Date;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class TravelBookingController {
+import com.travelbooking.Model.Flight;
 
-	@GetMapping("/booking")
-	public String getBooking() {
-		return "Hello";
+@RestController
+public class FlightController {
+
+	@GetMapping("/myflight")
+	@ResponseBody
+	public ResponseEntity<Flight> getflight() {
+		return ResponseEntity.ok(new Flight(new Date(),new Date(),"Pune","Delhi"));
 	}
-	
-	
 }
